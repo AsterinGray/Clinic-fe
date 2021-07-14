@@ -13,7 +13,7 @@ const initialState: RoleState = {
   status: PENDING,
 }
 
-export const login = createAsyncThunk(ROLE, async (token: string) => {
+export const getRole = createAsyncThunk(ROLE, async (token: string) => {
   const response = await api.get('/role', {
     headers: {
       Authorization: 'Bearer ' + token,
@@ -27,14 +27,14 @@ const loginSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(login.pending, (state, { payload }) => {
+    builder.addCase(getRole.pending, (state, { payload }) => {
       state.status = PENDING
     }),
-      builder.addCase(login.rejected, (state, { payload }) => {
+      builder.addCase(getRole.rejected, (state, { payload }) => {
         state.status = REJECTED
       }),
-      builder.addCase(login.fulfilled, (state, { payload }) => {
-        state.role = payload
+      builder.addCase(getRole.fulfilled, (state, { payload }) => {
+        state.role = payload.role
         state.status = FULFILLED
       })
   },

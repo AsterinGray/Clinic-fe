@@ -5,7 +5,7 @@ import { getAppointmentDetail } from '../../../src/store/slices/appointment/appo
 
 const AppointmentDetailPage = () => {
   const dispatch = useAppDispatch()
-  const state = useAppSelector((state) => state.appointmentDetail)
+  const { data } = useAppSelector((state) => state.appointmentDetail)
 
   const router = useRouter()
 
@@ -14,30 +14,24 @@ const AppointmentDetailPage = () => {
 
   useEffect(() => {
     setToken(localStorage.getItem('clinic_token'))
-
-    if (token === '') {
-      router.replace('/')
-    } else {
-      setSlug(router.query.slug)
-      console.log(slug)
-    }
+    if (token === '') router.replace('/')
   }, [])
 
   useEffect(() => {
+    setSlug(router.query.slug)
     if (token && slug) {
       dispatch(getAppointmentDetail({ token, id: slug }))
-      console.log(state)
     }
-  }, [token, slug])
+  }, [token, slug, router, dispatch, data])
 
   return (
     <div>
       <div>appointment detail page</div>
-      {state && (
+      {data && (
         <div>
-          <span>{state.data.doctor}</span>
-          <span>{state.data.description}</span>
-          <span>{state.data.capacity}</span>
+          <span>{data.doctor}</span>
+          <span>{data.description}</span>
+          <span>{data.capacity}</span>
         </div>
       )}
     </div>

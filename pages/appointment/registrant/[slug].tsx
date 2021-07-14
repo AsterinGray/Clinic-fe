@@ -14,20 +14,13 @@ const AppointmentRegistrant = () => {
 
   useEffect(() => {
     setToken(localStorage.getItem('clinic_token'))
-
-    if (token === '') {
-      router.replace('/')
-    }
+    if (token === '') router.replace('/')
   }, [])
 
   useEffect(() => {
     setSlug(router.query.slug)
-    console.log(slug)
-    if (token && slug) {
-      dispatch(getAppointmentRegistrant({ token, id: slug }))
-      console.log(state)
-    }
-  }, [token, slug, router])
+    if (token && slug) dispatch(getAppointmentRegistrant({ token, id: slug }))
+  }, [token, slug, router, dispatch])
 
   return (
     <div>
