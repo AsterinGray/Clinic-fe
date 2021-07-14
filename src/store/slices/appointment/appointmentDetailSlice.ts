@@ -40,8 +40,7 @@ const getAppointmentSlice = createSlice({
         state.status = REJECTED
       }),
       builder.addCase(getAppointmentDetail.fulfilled, (state, { payload }) => {
-        state.data = payload.data
-        state.message = payload.message
+        state.data = payload
         state.status = FULFILLED
       })
   },

@@ -2,6 +2,7 @@ import { useRouter } from 'next/dist/client/router'
 import { useEffect, useState } from 'react'
 import { useAppDispatch, useAppSelector } from '../src/store/hooks'
 import { getAppointmentList } from '../src/store/slices/appointment/appointmentListSlice'
+import Link from 'next/link'
 
 const Home: React.FC = () => {
   const dispatch = useAppDispatch()
@@ -36,6 +37,7 @@ const Home: React.FC = () => {
             <span>{appointment.doctor}</span>
             <span>{appointment.description}</span>
             <span>{appointment.capacity}</span>
+            <Link href={`/appointment/detail/${appointment._id}`}>More</Link>
           </div>
         )
       })}

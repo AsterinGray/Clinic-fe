@@ -11,7 +11,6 @@ interface AppointmentListState {
 
 const initialState: AppointmentListState = {
   data: [],
-  message: '',
   status: PENDING,
 }
 
