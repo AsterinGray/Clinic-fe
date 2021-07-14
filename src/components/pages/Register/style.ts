@@ -6,7 +6,7 @@ export const Section = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 85vh;
+  min-height: 85vh;
 `
 
 export const Card = styled.div`
