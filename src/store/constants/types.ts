@@ -1,5 +1,6 @@
 export const LOGIN: string = 'login'
 export const REGISTER: string = 'register'
+export const ROLE: string = 'role'
 
 export const APPOINTMENT_LIST: string = 'appointment/list'
 export const APPOINTMENT_DETAIL: string = 'appointment/detail'

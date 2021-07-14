@@ -6,13 +6,11 @@ import { APPOINTMENT_REGISTRANT } from '../../../constants/types'
 
 interface AppointmentRegistrantState {
   data: UserProps[]
-  message: string
   status: string
 }
 
 const initialState: AppointmentRegistrantState = {
   data: [],
-  message: '',
   status: PENDING,
 }
 
@@ -45,8 +43,7 @@ const deleteAppointmentSlice = createSlice({
       builder.addCase(
         getAppointmentRegistrant.fulfilled,
         (state, { payload }) => {
-          state.data = payload.data
-          state.message = payload.message
+          state.data = payload
           state.status = FULFILLED
         }
       )

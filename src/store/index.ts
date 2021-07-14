@@ -1,7 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit'
 
-import loginSlice from './slices/loginSlice'
 import registerSlice from './slices/registerSlice'
+import loginSlice from './slices/loginSlice'
+import roleSlice from './slices/roleSlice'
 
 import appointmentListSlice from './slices/appointment/appointmentListSlice'
 import applyAppointmentSlice from './slices/appointment/patient/applyAppointmentSlice'
@@ -14,8 +15,9 @@ import AppointmentRegistrantSlice from './slices/appointment/admin/AppointmentRe
 
 export const store = configureStore({
   reducer: {
-    login: loginSlice,
     register: registerSlice,
+    login: loginSlice,
+    role: roleSlice,
 
     appointmentList: appointmentListSlice,
     appointmentDetail: appointmentDetailSlice,
