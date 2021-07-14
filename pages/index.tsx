@@ -1,6 +1,8 @@
 import { useRouter } from 'next/dist/client/router'
 import { useEffect } from 'react'
 import { FormEvent, useState } from 'react'
+import Navbar from '../src/components/common/Navbar'
+import FormCard from '../src/components/pages/Auth'
 import { FULFILLED } from '../src/store/constants/status'
 import { useAppDispatch, useAppSelector } from '../src/store/hooks'
 import { login } from '../src/store/slices/loginSlice'
@@ -25,24 +27,38 @@ const Login = () => {
     dispatch(login({ email, password }))
   }
 
+  const inputs = [
+    {
+      type: email,
+      name: email,
+    },
+    {
+      type: password,
+      name: password,
+    },
+  ]
+
   return (
-    <form onSubmit={(e) => onFormSubmit(e)}>
-      <input
-        type="email"
-        name="email"
-        id=""
-        placeholder="email"
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <input
-        type="password"
-        name="password"
-        id=""
-        placeholder="password"
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button type="submit">Submit</button>
-    </form>
+    <>
+      <Navbar />
+      <form onSubmit={(e) => onFormSubmit(e)}>
+        <input
+          type="email"
+          name="email"
+          id=""
+          placeholder="email"
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          type="password"
+          name="password"
+          id=""
+          placeholder="password"
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button type="submit">Submit</button>
+      </form>
+    </>
   )
 }
 

@@ -1,11 +1,14 @@
+import Link from 'next/link'
 import { useRouter } from 'next/dist/client/router'
 import { useEffect, useState } from 'react'
+
 import { useAppDispatch, useAppSelector } from '../src/store/hooks'
 import { getAppointmentList } from '../src/store/slices/appointment/appointmentListSlice'
-import Link from 'next/link'
+
 import { getRole } from '../src/store/slices/roleSlice'
 import { deleteAppointment } from '../src/store/slices/appointment/admin/deleteAppointmentSlice'
 import { applyAppointment } from '../src/store/slices/appointment/patient/applyAppointmentSlice'
+import Navbar from '../src/components/common/Navbar'
 
 const Home: React.FC = () => {
   const dispatch = useAppDispatch()
@@ -38,6 +41,7 @@ const Home: React.FC = () => {
 
   return (
     <>
+      <Navbar />
       <div>Home</div>
 
       {data.map((appointment) => {
