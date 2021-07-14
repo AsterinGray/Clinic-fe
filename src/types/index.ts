@@ -6,3 +6,10 @@ export type UserProps = {
   email: string
   password: string
 }
+
+export type AppointmentProps = {
+  doctor: string
+  description: string
+  capacity: number
+  registrant: UserProps[]
+}
