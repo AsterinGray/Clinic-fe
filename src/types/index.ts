@@ -8,6 +8,7 @@ export type UserProps = {
 }
 
 export type AppointmentProps = {
+  _id: string
   doctor: string
   description: string
   capacity: number

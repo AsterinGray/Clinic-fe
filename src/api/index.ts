@@ -10,6 +10,6 @@ let api = axios.create({
   baseURL: 'http://localhost:4000',
 })
 
-// api = setupInterceptor(api)
+api = setupInterceptor(api)
 
 export default api

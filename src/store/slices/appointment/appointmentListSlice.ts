@@ -6,7 +6,6 @@ import { APPOINTMENT_LIST } from '../../constants/types'
 
 interface AppointmentListState {
   data: AppointmentProps[]
-  message: string
   status: string
 }
 
@@ -40,7 +39,7 @@ const appointmentListSlice = createSlice({
         state.status = REJECTED
       }),
       builder.addCase(getAppointmentList.fulfilled, (state, { payload }) => {
-        state.message = payload
+        state.data = payload
         state.status = FULFILLED
       })
   },
